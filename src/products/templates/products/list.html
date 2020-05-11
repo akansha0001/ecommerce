@@ -1,18 +1,3 @@
-
-
-<!--
-{
-    {{qs}}
-
-    'paginator': None, 
-    'page_obj': None, 
-    'is_paginated': False,
-    'object_list': <QuerySet [<Product: T-shirt>, <Product: hat>]>, 
-    'product_list': <QuerySet [<Product: T-shirt>, <Product: hat>]>, 
-    'view': <products.views.ProductListView object at 0x7f290efded50>
-}
--->
-
-{%for obj in object_list%}
-{{obj.title}}
+{% for obj in object_list %}
+<a href='{{ obj.get_absolute_url }}'>{{ obj.title }}</a><br/>
 {% endfor %}
