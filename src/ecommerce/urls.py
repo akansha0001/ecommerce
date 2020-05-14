@@ -21,22 +21,13 @@ from django.views.generic import TemplateView
 from django.conf.urls import url,include
 from django.contrib import admin
 from .view import home_page,contact_page,login_page,register_page
-
-# from products.views import(
-#      ProductListView,
-#      product_list_view,
-#      ProductDetailView,
-#      product_detail_view,
-#      ProductFeaturedListView,
-#      ProductFeaturedDetailView,
-#       ProductDetailSlugView
-# )
-
+from carts.views import cart_home
 
 urlpatterns = [
     url(r'^$', home_page,name='home'),
     url(r'^contact/$', contact_page,name='contact'),
     url(r'^login/$', login_page,name='login'),
+    url(r'^cart/', include("carts.urls",namespace='cart')),
     url(r'^register/$', register_page,name='register'),
     url(r'^products/', include("products.urls",namespace='products')),
     url(r'^search/', include("search.urls",namespace='search')),
@@ -46,15 +37,7 @@ urlpatterns = [
     url(r'^bootstrap/', TemplateView.as_view(template_name="bootstrap/example.html")),
 
 
-    # url(r'^products/$', ProductListView.as_view()),
-    # url(r'^products_fbv/$', product_list_view),
-    # #url(r'^products/(?P<pk>\d+)/$', ProductDetailView.as_view()),
-    # url(r'^products/(?P<slug>[\w-]+)/$', ProductDetailSlugView.as_view()),
-    # url(r'^products_fbv/(?P<pk>\d+)/$', product_detail_view),
-
-
-    # url(r'^features/$', ProductFeaturedListView.as_view()),
-    # url(r'^features/(?P<pk>\d+)/$', ProductFeaturedDetailView.as_view()),
+   
 
 
 

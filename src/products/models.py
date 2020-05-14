@@ -6,7 +6,7 @@ from django.urls import reverse
 from django.db.models import Q
 
 
-from .utils import unique_slug_generator
+from ecommerce.utils import unique_slug_generator
 
 
 
@@ -73,6 +73,10 @@ class Product(models.Model):
 
 
     objects = ProductManager()
+
+    @property
+    def name(self):
+        return self.title
 
     def get_absolute_url(self):
         # return "/products/{slug}/".format(slug=self.slug)
