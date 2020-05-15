@@ -33,10 +33,19 @@
         <td colspan="2"></td>
         <td><b>total</b>{{cart.total}}</td>
       </tr>
+      <tr>
+        <td colspan="2"></td>
+        <td>
+          <a class='btn btn-block btn-success'
+          href='{%url "cart:checkout"%}'>checkout
+        </a>
+        </td>
+     
+        </tr>
     </tbody>
   </table>
   {%else%}
-        <p> cart is empy</p>
+        <p> cart is empty</p>
   {%endif%}
 
 {% endblock %}
