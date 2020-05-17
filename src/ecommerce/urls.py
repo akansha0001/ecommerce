@@ -44,6 +44,7 @@ urlpatterns = [
     
     url(r'^bootstrap/', TemplateView.as_view(template_name="bootstrap/example.html")),
 
+   
 
    
 

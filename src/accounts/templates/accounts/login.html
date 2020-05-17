@@ -1,14 +1,23 @@
+
 {% extends "base.html" %}
+{%load static%}
 
 {% block content %}
+<h2>Login Form</h2>
 
-    <div class='row'>
-        <div class='col'>
-            <form method='POST'> {% csrf_token %} 
-                {{ form }}
-                <button type='submit' class='btn btn-default'>Submit</button>
-            </form>
+    <form method='POST'> {% csrf_token %} 
+
+        <div class="imgcontainer">
+            <img src="{% static 'css/person.png' %}" alt="Avatar" class="avatar" />
         </div>
-    </div>
+    
+        {{ form }}
+    </br>
+        <div class="text-center">
+             <button type='submit' class='btn btn-default '>Submit</button>
+        </div>
+        
+    </form>
+</br>
 
 {% endblock %}

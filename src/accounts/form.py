@@ -50,8 +50,22 @@ class RegisterForm(forms.Form):
                 }
             )
     )
-    password = forms.CharField(widget=forms.PasswordInput)
-    password2 = forms.CharField(label='Confirm password', widget=forms.PasswordInput)
+    password = forms.CharField(widget=forms.PasswordInput(
+            attrs={
+                "class": "form-control", 
+                "placeholder": "enter password"
+                }
+            )
+    
+    
+    )
+    password2 = forms.CharField(label='Confirm password', widget=forms.PasswordInput(
+            attrs={
+                "class": "form-control", 
+                "placeholder": "reenter password"
+                }
+            )
+    )
 
     def clean_username(self):
         username = self.cleaned_data.get('username')

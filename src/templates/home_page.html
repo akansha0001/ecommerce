@@ -3,23 +3,32 @@
 <title>home template!</title>
 {%block content%}
 
+
+
 <div class='text-center'>
     <h1>{{ title }}</h1>
-    <h1>Hello, world we're working!</h1>
+    
    
 </div>
 
-    <div class='row'>
+        <div class='row'>
+
+    {% for obj in object_list %}
         <div class='col'>
-            <img src="{% static 'img/img.jpg' %}" class='img-fluid' />
-            <p>{{content}}</p>
-        </div>
+       
+        {% include 'products/snippets/card.html' with instance=obj %}  
+        
+        <!-- {% if forloop.counter|divisibleby:3 %}
+         </div> </div><div class='row'><div class='col-12'><hr/></div>
+        {% elif forloop.counter|divisibleby:2 %}
+            </div> </div><div class='row'><div class='col-12'><hr/></div>
+        {% else %}
+         </div>  
+        {% endif %}
+        -->
     </div>
-    <div class='row'>
-        <div class="col">
-            {{Premium_content}}
-        </div>
-    </div>
+    {% endfor %}
+</div>
 
 
 {% endblock %}

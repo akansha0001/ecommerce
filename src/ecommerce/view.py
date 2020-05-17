@@ -3,12 +3,20 @@ from django.shortcuts import render,redirect
 from .form import ContactForms
 from django.contrib.auth import authenticate, login ,get_user_model
 
+from carts.models import Cart
+
+from products.models import Product
+
+
 def home_page(request):
+    queryset = Product.objects.all()
     a = {
-        "title":"Hello World!",
+        "title":"welcome to Ecommerce website!",
         "content":" Welcome to the homepage.",
-        "Premium_content":"yeaah"
+        "Premium_content":"yeaah",
+        'object_list': queryset
     }
+    print(len(queryset))
     if request.user.is_authenticated:
         a["Premium_content"]="yeaah"
     return render(request,"home_page.html",a)

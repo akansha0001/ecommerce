@@ -1,3 +1,60 @@
+
+
 body {
-    color: #ccc;
-}
+    background-color: rgb(210, 186, 233); 
+    /* color: #ccc; */
+    color:black;
+  }
+  
+  h1 {
+   
+    margin-left: 20px;
+    color: black;
+  }
+  
+  form {
+    border: 3px solid #f1f1f1;
+  }
+  
+  /* Full-width inputs */
+ 
+  
+  /* Set a style for all buttons */
+  
+  
+  /* Add a hover effect for buttons */
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  /* Extra style for the cancel button (red) */
+ 
+  
+  /* Center the avatar image inside this container */
+  .imgcontainer {
+   
+    text-align: center;
+    margin: 3px 0 3px 0;
+  }
+  
+  /* Avatar image */
+  img.avatar {
+   
+    width: 20%;
+    border-radius: 30%;
+  }
+  
+  /* Add padding to containers
+  .container {
+    padding: 16px;
+  } */
+  
+  /* The "Forgot password" text */
+  /* span.psw {
+    float: right;
+    padding-top: 16px;
+  }
+  
+ 
+  } */
+
