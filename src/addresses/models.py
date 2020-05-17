@@ -18,7 +18,7 @@ class Address(models.Model):
     postal_code     = models.CharField(max_length=120)
 
     def __str__(self):
-        return str(self.billing_profile)
+        return str(self.address_line_1)
 
     def get_address(self):
         return "{line1}\n{line2}\n{city}\n{state}, {postal}\n{country}".format(

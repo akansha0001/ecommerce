@@ -82,6 +82,7 @@ class Product(models.Model):
         # return "/products/{slug}/".format(slug=self.slug)
        # print('hello')
         return reverse('products:detail', kwargs={"slug": self.slug})
+    
 
 
     def __str__(self):

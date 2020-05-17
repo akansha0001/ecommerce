@@ -1,12 +1,30 @@
-<div class="card" style="width: 18rem;">
+<div class="mx-auto w-50 p-3 bg-light text-black text-center">
+<div class="card " style="width: 18rem; width: 18rem;">
     {%if instance.image%}
-        <img class="card-img-top" src="{{instance.image.url}}" alt="{{instance.title}} logo">
+    <!-- <div class="embed-responsive embed-responsive-16by9"> -->
+
+      <a href="{{instance.get_absolute_url}}">
+        <img class="card-img-top" src="{{instance.image.url}}" alt="{{instance.title}} logo " height="302">
+     </a>
+
+        <!-- <img class="card-img-top" src="{{instance.image.url}}" alt="{{instance.title}} logo "height=302> -->
+    <!-- </div> -->
     {%endif%}
     <div class="card-body">
-      <h5 class="card-title">{{instance.title}}</h5>
+      <h5 class="card-title"><p class="card-text">{{instance.title|linebreaks|truncatewords:3}}</p></h5>
       price:{{instance.price}}
-      <p class="card-text">{{instance.description|linebreaks|truncatewords:12}}</p>
-      <a href="{{instance.get_absolute_url}}" class="btn btn-primary">View</a>
+      <p class="card-text">{{instance.description|truncatewords:4}}</p>
+
+      <div class="card-body">
+          <div class="col">
+              {% include 'products/snippets/update_cart.html' with product=instance cart=cart %}
+          </div>
+      </div>
+      
+      
       <!-- <a href="{%url 'products:detail' slug=instance.slug%}" class="btn btn-warning">shortcut</a> -->
     </div>
+
+  
   </div>
+</div>
