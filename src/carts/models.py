@@ -41,6 +41,7 @@ class Cart(models.Model):
     total       = models.DecimalField(default=0.00, max_digits=100, decimal_places=2)
     subtotal    = models.DecimalField(default=0.00, max_digits=100, decimal_places=2)
     updated     = models.DateTimeField(auto_now=True)
+    tax         = models.DecimalField(default=5.00, max_digits=100, decimal_places=2)
     timestamp   = models.DateTimeField(auto_now_add=True)
 
     objects = CartManager()
@@ -67,7 +68,10 @@ m2m_changed.connect(m2m_changed_cart_receiver, sender=Cart.products.through)
 
 def pre_save_cart_receiver(sender, instance, *args, **kwargs):
     if instance.subtotal > 0:
-        instance.total = Decimal(instance.subtotal)  * Decimal(1.08)
+        if instance.tax>0:
+            instance.total =( Decimal(instance.subtotal)  * Decimal(instance.tax))/100
+        else:
+            instance.total =( Decimal(instance.subtotal))
     else:
         instance.total = 0.00
 
